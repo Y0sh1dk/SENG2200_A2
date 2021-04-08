@@ -1,7 +1,7 @@
 public class Polygon extends PlanarShape {
 
-    public Polygon() {
-        super(ShapeType.POLYGON);
+    public Polygon(int inNumOfPoints) {
+        super(ShapeType.POLYGON, inNumOfPoints);
     }
 
     @Override
@@ -17,13 +17,13 @@ public class Polygon extends PlanarShape {
     @Override
     public double area() {
         double a = 0;
-        for (int i = 0; i <= (points.size() - 2); i++) {
-            a += ((points.get(i + 1).getxCoordinate() + points.get(i).getxCoordinate()) *
-                    (points.get(i + 1).getyCoordinate() - points.get(i).getyCoordinate()));
+        for (int i = 0; i <= (points.length - 2); i++) {
+            a += ((points[i + 1].getxCoordinate() + points[i].getxCoordinate()) *
+                    (points[i + 1].getyCoordinate() - points[i].getyCoordinate()));
         }
         // for the last calculation that needs to use the first and last point
-        a += ((points.get(0).getxCoordinate() + points.get(points.size() - 1).getxCoordinate()) *
-                (points.get(0).getyCoordinate() - points.get(points.size() - 1).getyCoordinate()));
+        a += ((points[0].getxCoordinate() + points[points.length - 1].getxCoordinate()) *
+                (points[0].getyCoordinate() - points[points.length - 1].getyCoordinate()));
         return 0.5 * Math.abs(a);
     }
 

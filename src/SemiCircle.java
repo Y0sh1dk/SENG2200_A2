@@ -1,7 +1,13 @@
 public class SemiCircle extends PlanarShape{
 
     public SemiCircle() {
-        super(ShapeType.SEMICIRCLE);
+        super(ShapeType.SEMICIRCLE, 2);
+    }
+
+    public SemiCircle(int inX1, int inY1, int inX2, int inY2) {
+        this();
+        addPoint(inX1, inY1);
+        addPoint(inX2, inY2);
     }
 
     @Override

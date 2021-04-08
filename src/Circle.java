@@ -2,7 +2,17 @@ public class Circle extends PlanarShape{
     private double radius;
 
     public Circle() {
-        super(ShapeType.CIRCLE);
+        super(ShapeType.CIRCLE, 1);
+    }
+
+    public Circle(int inRadius) {
+        this();
+        this.radius = inRadius;
+    }
+
+    public Circle(int inX, int inY, int inRadius) {
+        this(inRadius);
+        this.addPoint(inX, inY);
     }
 
     @Override

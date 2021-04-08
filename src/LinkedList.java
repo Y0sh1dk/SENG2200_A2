@@ -17,3 +17,7 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T> {
         };
     }
 }
+
+
+
+
