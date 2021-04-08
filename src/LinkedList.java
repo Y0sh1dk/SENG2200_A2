@@ -38,10 +38,18 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T> {
         this.size++;
     }
 
+    public T take() {
+        T outData = this.sentinel.getNextNode().getData();
+        this.sentinel.getNextNode().getNextNode().setPrevNode(this.sentinel);
+        this.sentinel.setNextNode(this.sentinel.getNextNode().getNextNode());
+        this.size--;
+        return outData;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
-            private Node<T> current = sentinel.getNextNode(); // set current to head
+            private Node<T> current = sentinel; // set current to sentinel
 
             @Override
             public boolean hasNext() {
