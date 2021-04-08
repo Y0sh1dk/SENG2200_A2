@@ -1,7 +1,7 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class LinkedList<T extends PlanarShape> implements Iterable<T> {
+public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedList<T> {
     private final Node<T> sentinel;                                // Sentinel node for start/end of CLL (cannot be changed)
     private int size;                                           // size of CLL (Excluding sentinel)
 
@@ -10,6 +10,7 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T> {
         this.size = 0;
     }
 
+    @Override
     public void append(T inData) {
         this.add(inData, this.sentinel);
     }
@@ -19,8 +20,14 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T> {
      *
      * @param inData data to add to the start of the CLL
      */
+    @Override
     public void prepend(T inData) {
         this.add(inData, this.sentinel.getNextNode());
+    }
+
+    @Override
+    public void insertInOrder(T inData) {
+        // TODO: this
     }
 
     /**
@@ -38,11 +45,13 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T> {
         this.size++;
     }
 
+    //TODO: test
+    @Override
     public T take() {
         T outData = this.sentinel.getNextNode().getData();
         this.sentinel.getNextNode().getNextNode().setPrevNode(this.sentinel);
         this.sentinel.setNextNode(this.sentinel.getNextNode().getNextNode());
-        this.size--;
+        this.size--; // TODO: can become negative, fix
         return outData;
     }
 
