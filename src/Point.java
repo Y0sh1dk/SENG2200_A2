@@ -58,6 +58,12 @@ public class Point {
                 Math.pow(this.yCoordinate - Point.originY, 2));
     }
 
+    // TODO: this
+    public double distFromPoint(Point inPoint) {
+        return Math.sqrt(Math.pow(this.xCoordinate - inPoint.getxCoordinate(), 2) + // ((x - 0)^2) + (y - 0)^2)^(1/2)
+                Math.pow(this.yCoordinate - inPoint.getyCoordinate(), 2));
+    }
+
     /**
      * getyCoordinate() method
      *

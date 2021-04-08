@@ -28,7 +28,13 @@ public class Polygon extends PlanarShape {
     }
 
     @Override
-    public double originDistance() {
-        return 0;
+    public double originDistance() { // TODO: CHECK THIS!!!
+        double shortestDist = this.points[0].distFromOrigin(); // Initialize with any value from the array
+        for (Point p : this.points) {
+            if (p.distFromOrigin() < shortestDist) {
+                shortestDist = p.distFromOrigin();
+            }
+        }
+        return shortestDist;
     }
 }

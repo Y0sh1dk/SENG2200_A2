@@ -32,6 +32,14 @@ public class Circle extends PlanarShape{
 
     @Override
     public double originDistance() {
-        return 0;
+        return this.points[0].distFromOrigin() - radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
     }
 }

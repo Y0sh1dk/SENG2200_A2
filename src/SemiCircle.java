@@ -22,11 +22,15 @@ public class SemiCircle extends PlanarShape{
 
     @Override
     public double area() {
-        return 0;
+        return (Math.PI * Math.pow(this.radius(), 2))/2;
     }
 
     @Override
     public double originDistance() {
         return 0;
+    }
+
+    public double radius() {
+        return points[1].distFromPoint(points[2]);
     }
 }
