@@ -1,5 +1,6 @@
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -54,10 +55,10 @@ public class PA2 {
         System.out.println(l1);                                         // Print string rep of class
 
         LinkedList<PlanarShape> l2 = new LinkedList<>();                             // Create new MyPolygons instance
-        int p1Size = l1.getSize();
-        for (int i = 0; i < p1Size; i++) {
-            //l2.insertInOrder(l1.take());
-            l2.append(l1.take());
+        Iterator<PlanarShape> itr = l1.iterator();
+        while(itr.hasNext()) {
+            l2.append(itr.next());
+            itr.remove();
         }
         System.out.println("Sorted list");
         System.out.println(l2);                                         // Print string rep of class

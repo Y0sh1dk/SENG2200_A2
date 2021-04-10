@@ -75,6 +75,13 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
                 current = current.getNextNode();
                 return current.getData();
             }
+
+            @Override
+            public void remove() {
+                this.current.getNextNode().setPrevNode(this.current.getPrevNode());
+                this.current.getPrevNode().setNextNode(this.current.getNextNode());
+                size--;
+            }
         };
     }
 
