@@ -37,7 +37,7 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
      * @param n      the node to determine where to insert the data (at this nodes index)
      */
     private void add(T inData, Node<T> n) {
-        Node<T> temp = new Node<T>(inData);                           // Create new node
+        Node<T> temp = new Node<T>(inData);                     // Create new node
         temp.setNextNode(n);                                    // Set new nodes next
         temp.setPrevNode(n.getPrevNode());                      // set new nodes prev
         n.getPrevNode().setNextNode(temp);                      // set left nodes next to new node
@@ -51,7 +51,9 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
         T outData = this.sentinel.getNextNode().getData();
         this.sentinel.getNextNode().getNextNode().setPrevNode(this.sentinel);
         this.sentinel.setNextNode(this.sentinel.getNextNode().getNextNode());
-        this.size--; // TODO: can become negative, fix
+        if (outData != null) {
+            this.size--; // TODO: can become negative, fix
+        }
         return outData;
     }
 
@@ -84,6 +86,10 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
             str.append("\n");
         }
         return str.toString();
+    }
+
+    public int getSize() {
+        return this.size;
     }
 }
 

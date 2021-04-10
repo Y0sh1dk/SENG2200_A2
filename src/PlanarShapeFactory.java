@@ -13,7 +13,6 @@ public class PlanarShapeFactory {
             if (inShapeType == PlanarShape.ShapeType.POLYGON) {
                 throw new Exception("Cannot create: " + inShapeType + " - Number of points not given");
             }
-            throw new Exception("Error: Number of points cannot be less than 1");
         }
 
         if(inShapeType == PlanarShape.ShapeType.CIRCLE) {

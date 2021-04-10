@@ -31,6 +31,6 @@ public class SemiCircle extends PlanarShape{
     }
 
     public double radius() {
-        return points[1].distFromPoint(points[2]);
+        return points[0].distFromPoint(points[1]);
     }
 }
