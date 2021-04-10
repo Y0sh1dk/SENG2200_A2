@@ -37,7 +37,28 @@ public abstract class PlanarShape implements Comparable<PlanarShape> {
 
     @Override
     public int compareTo(PlanarShape o) {
-        return 0;
+        // 1 if current object is grater than the specified object
+        // -1 if the current object is less than the specified object
+        // 0 if the current object is equal to the specified object
+
+
+        double inPolyArea = o.area();
+        double thisPolyArea = this.area();
+
+        PlanarShape smallestPoly;
+        if (inPolyArea > thisPolyArea) {
+            smallestPoly = this;
+        } else {
+            smallestPoly = o;
+        }
+
+        // If within 0.05% of each other TODO: tests this
+        if (Math.abs(inPolyArea - thisPolyArea) <= (0.0005 * smallestPoly.area())) {
+            return this.originDistance() < o.originDistance() ? 1 : -1;
+        } else { // not within 0.05%
+            return this.area() > o.area() ? 1 : -1;
+        }
+
     }
 
     @Override

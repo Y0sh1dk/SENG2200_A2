@@ -12,11 +12,11 @@ public class SemiCircle extends PlanarShape{
 
     @Override
     public String toString() {
-        StringBuilder str = new StringBuilder("SemI=[");
+        StringBuilder str = new StringBuilder("SEMI=[");
         for (Point p : super.points) {
             str.append(p);
         }
-        str.append(String.format("]:  %5.2f", this.area()));
+        str.append(String.format("]: %5.2f", this.area()));
         return str.toString();
     }
 

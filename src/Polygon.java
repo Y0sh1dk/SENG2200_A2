@@ -10,7 +10,7 @@ public class Polygon extends PlanarShape {
         for (Point p : super.points) {
             str.append(p);
         }
-        str.append(String.format("]:  %5.2f", this.area()));
+        str.append(String.format("]: %5.2f", this.area()));
         return str.toString();
     }
 

@@ -47,7 +47,7 @@ public class PA2 {
      *
      * @param filePath a path object generated from the input file
      */
-    private void run(Path filePath) {
+    private void run(Path filePath) { //TODO: Iterator in here
         System.out.println("Unsorted list");
         LinkedList<PlanarShape> l1 = new LinkedList<>();                               // Create new MyPolygons instance
         this.generateShapesFromFile(filePath, l1);             // Add polygons from file

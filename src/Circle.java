@@ -21,7 +21,7 @@ public class Circle extends PlanarShape{
         for (Point p : super.points) {
             str.append(p);
         }
-        str.append(String.format(" %3.2f]:  %5.2f",this.radius, this.area()));
+        str.append(String.format(" %3.2f]: %5.2f",this.radius, this.area()));
         return str.toString();
     }
 
