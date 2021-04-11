@@ -27,7 +27,19 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
 
     @Override
     public void insertInOrder(T inData) {
-        // TODO: this
+        if (this.size == 0) { // LL is empty
+            append(inData);
+            return;
+        }
+        Node<T> temp = sentinel.getNextNode();
+        for (int i = 0; i < this.size; i++) {
+            if (inData.compareTo(temp.getData()) > 0) {
+                add(inData, temp);
+                return;
+            }
+            temp = temp.getNextNode();
+        }
+        this.append(inData);
     }
 
     /**
@@ -45,7 +57,6 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
         this.size++;
     }
 
-    //TODO: test
     @Override
     public T take() {
         T outData = this.sentinel.getNextNode().getData();

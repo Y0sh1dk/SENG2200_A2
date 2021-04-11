@@ -58,8 +58,12 @@ public abstract class PlanarShape implements Comparable<PlanarShape> {
         } else { // not within 0.05%
             return this.area() > o.area() ? 1 : -1;
         }
-
     }
+
+    public ShapeType getShapeType() {
+        return shapeType;
+    }
+
 
     @Override
     public abstract String toString();
