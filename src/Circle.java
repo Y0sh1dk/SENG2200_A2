@@ -1,3 +1,13 @@
+/**
+ * FileName: Circle.java
+ * Assessment: SENG2200 - A2
+ * Author: Yosiah de Koeyer
+ * Student No: c3329520
+ * <p>
+ * Description:
+ * Circle class that extends PlanarShape abstract class, used to represent a Circle
+ */
+
 public class Circle extends PlanarShape{
     private double radius;
 

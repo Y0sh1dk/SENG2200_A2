@@ -2,7 +2,7 @@ import java.lang.Math;
 
 /**
  * FileName: Point.java
- * Assessment: SENG2200 - A1
+ * Assessment: SENG2200 - A2
  * Author: Yosiah de Koeyer
  * Student No: c3329520
  * <p>

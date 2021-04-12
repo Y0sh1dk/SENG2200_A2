@@ -5,16 +5,14 @@ import java.util.Scanner;
 
 /**
  * FileName: PA2.java
- * Assessment: SENG2200 - A1
+ * Assessment: SENG2200 - A2
  * Author: Yosiah de Koeyer
  * Student No: c3329520
  * <p>
  * Description:
- * Main class file for A1, accepts a file path from the command line args and generates and inserts polygons into
+ * Main class file for A2, accepts a file path from the command line args and generates and inserts polygons into
  * a CLL.
  */
-
-// TODO: make getters/setters final!
 
 public class PA2 {
     /**
@@ -48,7 +46,7 @@ public class PA2 {
      *
      * @param filePath a path object generated from the input file
      */
-    private void run(Path filePath) { //TODO: Iterator in here
+    private void run(Path filePath) {
         System.out.println("Unsorted list");
         LinkedList<PlanarShape> l1 = new LinkedList<>();                               // Create new MyPolygons instance
         this.generateShapesFromFile(filePath, l1);             // Add polygons from file

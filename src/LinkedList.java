@@ -1,6 +1,15 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * FileName: LinkedList.java
+ * Assessment: SENG2200 - A2
+ * Author: Yosiah de Koeyer
+ * Student No: c3329520
+ * <p>
+ * Description:
+ * Generic Doubly Linked List  w/ Sentinel data structure
+ */
 public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedList<T> {
     private final Node<T> sentinel;                                // Sentinel node for start/end of CLL (cannot be changed)
     private int size;                                           // size of CLL (Excluding sentinel)
@@ -63,7 +72,7 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
         this.sentinel.getNextNode().getNextNode().setPrevNode(this.sentinel);
         this.sentinel.setNextNode(this.sentinel.getNextNode().getNextNode());
         if (outData != null) {
-            this.size--; // TODO: can become negative, fix
+            this.size--;
         }
         return outData;
     }

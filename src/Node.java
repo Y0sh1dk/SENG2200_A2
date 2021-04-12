@@ -1,11 +1,11 @@
 /**
  * FileName: Node.java
- * Assessment: SENG2200 - A1
+ * Assessment: SENG2200 - A2
  * Author: Yosiah de Koeyer
  * Student No: c3329520
  * <p>
  * Description:
- * Node class, used in the creation of the CLL
+ * Generic Node class, used in the creation of the CLL
  */
 
 public class Node<T> {

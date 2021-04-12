@@ -1,3 +1,13 @@
+/**
+ * FileName: Polygon.java
+ * Assessment: SENG2200 - A2
+ * Author: Yosiah de Koeyer
+ * Student No: c3329520
+ * <p>
+ * Description:
+ * Polygon class that extends the PlanarShape abstract class, used to reporesent a Polygon
+ */
+
 public class Polygon extends PlanarShape {
 
     public Polygon(int inNumOfPoints) {

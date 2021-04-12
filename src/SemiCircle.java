@@ -1,3 +1,13 @@
+/**
+ * FileName: SemiCircle.java
+ * Assessment: SENG2200 - A2
+ * Author: Yosiah de Koeyer
+ * Student No: c3329520
+ * <p>
+ * Description:
+ * SemiCircle class that expends the PlanarShape abstract class, used to represent a semi-circle
+ */
+
 public class SemiCircle extends PlanarShape{
 
     public SemiCircle() {
