@@ -60,8 +60,8 @@ public class Point {
 
     // TODO: this
     public double distFromPoint(Point inPoint) {
-        return Math.sqrt(Math.pow(this.xCoordinate - inPoint.getxCoordinate(), 2) + // ((x - 0)^2) + (y - 0)^2)^(1/2)
-                Math.pow(this.yCoordinate - inPoint.getyCoordinate(), 2));
+        return Math.sqrt(Math.pow(this.xCoordinate - inPoint.getX(), 2) + // ((x - 0)^2) + (y - 0)^2)^(1/2)
+                Math.pow(this.yCoordinate - inPoint.getY(), 2));
     }
 
     /**
@@ -69,7 +69,7 @@ public class Point {
      *
      * @return the y coordinate stored in this point
      */
-    public double getyCoordinate() {
+    public double getY() {
         return yCoordinate;
     }
 
@@ -78,7 +78,7 @@ public class Point {
      *
      * @param yCoordinate coord to set as the y coordinate of this point
      */
-    public void setyCoordinate(double yCoordinate) {
+    public void setY(double yCoordinate) {
         this.yCoordinate = yCoordinate;
     }
 
@@ -87,7 +87,7 @@ public class Point {
      *
      * @return the x coordinate stored in this point
      */
-    public double getxCoordinate() {
+    public double getX() {
         return xCoordinate;
     }
 
@@ -96,7 +96,7 @@ public class Point {
      *
      * @param xCoordinate coord to set as the x coordinate of this point
      */
-    public void setxCoordinate(double xCoordinate) {
+    public void setX(double xCoordinate) {
         this.xCoordinate = xCoordinate;
     }
 

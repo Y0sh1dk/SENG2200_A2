@@ -23,7 +23,7 @@ public class SemiCircle extends PlanarShape{
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder("SEMI=[");
-        for (Point p : super.points) {
+        for (Point p : this.points) {
             str.append(p);
         }
         str.append(String.format("]: %5.2f", this.area()));
@@ -37,10 +37,29 @@ public class SemiCircle extends PlanarShape{
 
     @Override
     public double originDistance() {
-        return 0;
+        // Probs a better way lmao
+        Point[] consideredPoints = new Point[4];
+        consideredPoints[0] = this.points[0];
+        consideredPoints[1] = this.points[1];
+        consideredPoints[2] = new Point(
+                this.points[0].getX() - Math.abs(this.points[0].getY() - this.points[1].getY()),
+                this.points[0].getY() + Math.abs(this.points[0].getX() - this.points[1].getX())
+        );
+        consideredPoints[3] = new Point(
+                this.points[0].getX() + Math.abs(this.points[0].getY() - this.points[1].getY()),
+                this.points[0].getY() - Math.abs(this.points[0].getX() - this.points[1].getX())
+        );
+
+        double shortestDist = consideredPoints[0].distFromOrigin();
+        for (Point p : consideredPoints) {
+            if (p.distFromOrigin() < shortestDist) {
+                shortestDist = p.distFromOrigin();
+            }
+        }
+        return shortestDist;
     }
 
     public double radius() {
-        return points[0].distFromPoint(points[1]);
+        return this.points[0].distFromPoint(this.points[1]);
     }
 }

@@ -28,12 +28,12 @@ public class Polygon extends PlanarShape {
     public double area() {
         double a = 0;
         for (int i = 0; i <= (points.length - 2); i++) {
-            a += ((points[i + 1].getxCoordinate() + points[i].getxCoordinate()) *
-                    (points[i + 1].getyCoordinate() - points[i].getyCoordinate()));
+            a += ((points[i + 1].getX() + points[i].getX()) *
+                    (points[i + 1].getY() - points[i].getY()));
         }
         // for the last calculation that needs to use the first and last point
-        a += ((points[0].getxCoordinate() + points[points.length - 1].getxCoordinate()) *
-                (points[0].getyCoordinate() - points[points.length - 1].getyCoordinate()));
+        a += ((points[0].getX() + points[points.length - 1].getX()) *
+                (points[0].getY() - points[points.length - 1].getY()));
         return 0.5 * Math.abs(a);
     }
 
