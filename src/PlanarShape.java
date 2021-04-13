@@ -9,15 +9,16 @@
  */
 
 public abstract class PlanarShape implements Comparable<PlanarShape> {
+    // Enum to store types of shapes
     enum ShapeType {
         POLYGON,
         CIRCLE,
         SEMICIRCLE,
     }
 
-    private PlanarShape.ShapeType shapeType;
-    protected Point[] points;
-    protected int numOfPoints;
+    private PlanarShape.ShapeType shapeType;    // Type of shape
+    protected Point[] points;                   // Points of shape
+    protected int numOfPoints;                  // Number of points
 
     public PlanarShape() {
         this.shapeType = null;
@@ -39,7 +40,7 @@ public abstract class PlanarShape implements Comparable<PlanarShape> {
     public void addPoint(double inXCoord, double inYCoord) {
         if (numOfPoints < points.length) {
             this.points[numOfPoints] = new Point(inXCoord, inYCoord);
-            this.numOfPoints++; // increment number of points
+            this.numOfPoints++;                                         // increment number of points
         }
     }
 
@@ -59,7 +60,7 @@ public abstract class PlanarShape implements Comparable<PlanarShape> {
             smallestPoly = o;
         }
 
-        // If within 0.05% of each other TODO: tests this
+        // If within 0.05% of each other
         if (Math.abs(inPolyArea - thisPolyArea) <= (0.0005 * smallestPoly.area())) {
             return this.originDistance() < o.originDistance() ? 1 : -1;
         }
