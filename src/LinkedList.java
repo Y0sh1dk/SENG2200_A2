@@ -1,3 +1,4 @@
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -81,9 +82,13 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
     public Iterator<T> iterator() {
         return new Iterator<T>() {
             private Node<T> current = sentinel; // set current to sentinel
+            private int coModCount = size;
 
             @Override
             public boolean hasNext() {
+                if(this.coModCount != size) {
+                    throw new ConcurrentModificationException();
+                }
                 return current.getNextNode().getData() != null;
             }
 
@@ -100,6 +105,7 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
             public void remove() {
                 this.current.getNextNode().setPrevNode(this.current.getPrevNode());
                 this.current.getPrevNode().setNextNode(this.current.getNextNode());
+                this.coModCount--;
                 size--;
             }
         };
