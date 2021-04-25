@@ -10,16 +10,32 @@
 
 public class SemiCircle extends PlanarShape{
 
+    /**
+     * Constructor when no args are given
+     */
     public SemiCircle() {
         super(ShapeType.SEMICIRCLE, 2);
     }
 
+    /**
+     * Constructor when both points are given
+     *
+     * @param inX1 x coord of first point
+     * @param inY1 y coord of first point
+     * @param inX2 x coord of second point
+     * @param inY2 y coord of second point
+     */
     public SemiCircle(int inX1, int inY1, int inX2, int inY2) {
         this();
         addPoint(inX1, inY1);
         addPoint(inX2, inY2);
     }
 
+    /**
+     * toString() method
+     *
+     * @return A string representation of the semiCircle
+     */
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder("SEMI=[");
@@ -30,14 +46,24 @@ public class SemiCircle extends PlanarShape{
         return str.toString();
     }
 
+    /**
+     * area() method
+     *
+     * @return the area of the semiCircle
+     */
     @Override
     public double area() {
         return (Math.PI * Math.pow(this.radius(), 2))/2;
     }
 
+    /**
+     * originDistance() method
+     *
+     * @return shortest distance ot all semi circle points to the origin
+     */
     @Override
     public double originDistance() {
-        // Probs a better way lmao
+        // Definitely a better way lmao
         Point[] consideredPoints = new Point[4];
         consideredPoints[0] = this.points[0];
         consideredPoints[1] = this.points[1];
@@ -59,6 +85,11 @@ public class SemiCircle extends PlanarShape{
         return shortestDist;
     }
 
+    /**
+     * radius() method
+     *
+     * @return the radius of the semiCircle
+     */
     public double radius() {
         return this.points[0].distFromPoint(this.points[1]);
     }

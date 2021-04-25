@@ -63,9 +63,10 @@ public class PA2 {
     }
 
     /**
-     * generatePolygonsFromFile() method
+     * generateShapesFromFile() method
      *
-     * @param filePath      a path object generated from the input file
+     * @param filePath path to the file to read shapes from
+     * @param inLL LL to add the shapes too
      */
     private void generateShapesFromFile(Path filePath, LinkedList<PlanarShape> inLL) {
         try {
@@ -89,6 +90,12 @@ public class PA2 {
         }
     }
 
+    /**
+     * generatePolygon() method
+     *
+     * @param str string from file to create polygon from
+     * @return a polygon object
+     */
     private PlanarShape generatePolygon(String str) {
         String[] params = str.trim().split("\\s+");
         PlanarShape shape = null;
@@ -103,6 +110,12 @@ public class PA2 {
         return shape;
     }
 
+    /**
+     * generateCircle() method
+     *
+     * @param str string from file to create circle from
+     * @return a circle object
+     */
     private Circle generateCircle(String str) {
         String[] params = str.trim().split("\\s+");
         Circle shape = null;
@@ -116,6 +129,12 @@ public class PA2 {
         return shape;
     }
 
+    /**
+     * generateSemiCircle() method
+     *
+     * @param str string from file to create semiCircle from
+     * @return a semiCircle object
+     */
     private SemiCircle generateSemiCircle(String str) {
         String[] params = str.trim().split("\\s+");
         SemiCircle shape = null;
@@ -128,7 +147,5 @@ public class PA2 {
         }
         return shape;
     }
-
-
 
 }

@@ -20,11 +20,19 @@ public abstract class PlanarShape implements Comparable<PlanarShape> {
     protected Point[] points;                   // Points of shape
     protected int numOfPoints;                  // Number of points
 
+    /**
+     * Constructor when no args are given
+     */
     public PlanarShape() {
         this.shapeType = null;
         this.numOfPoints = 0;
     }
 
+    /**
+     * Constructor when type of shape and number of points are given
+     * @param shapeType type of shape
+     * @param inNumOfPoints number of points the shape stores
+     */
     public PlanarShape(ShapeType shapeType, int inNumOfPoints) {
         this();
         this.shapeType = shapeType;
@@ -44,12 +52,18 @@ public abstract class PlanarShape implements Comparable<PlanarShape> {
         }
     }
 
+    /**
+     * compareTo() method
+     *
+     * 1 if current object is grater than the specified object
+     * -1 if the current object is less than the specified object
+     * 0 if the current object is equal to the specified object
+     *
+     * @param o object to compare current too
+     * @return int outcome of the comparison
+     */
     @Override
     public int compareTo(PlanarShape o) {
-        // 1 if current object is grater than the specified object
-        // -1 if the current object is less than the specified object
-        // 0 if the current object is equal to the specified object
-
         double inPolyArea = o.area();
         double thisPolyArea = this.area();
 
@@ -67,6 +81,11 @@ public abstract class PlanarShape implements Comparable<PlanarShape> {
         return this.area() > o.area() ? 1 : -1;
     }
 
+    /**
+     * getShapeType() method
+     *
+     * @return type of shape
+     */
     public ShapeType getShapeType() {
         return shapeType;
     }

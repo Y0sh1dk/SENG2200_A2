@@ -44,6 +44,7 @@ public class PlanarShapeFactory {
             }
         }
 
+        // TODO(yoshi): use switch case
         if(inShapeType == PlanarShape.ShapeType.CIRCLE) {
             return new Circle();
         } else if (inShapeType == PlanarShape.ShapeType.POLYGON) {

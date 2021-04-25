@@ -70,7 +70,7 @@ public class Point {
      * @return the y coordinate stored in this point
      */
     public double getY() {
-        return yCoordinate;
+        return this.yCoordinate;
     }
 
     /**
@@ -88,7 +88,7 @@ public class Point {
      * @return the x coordinate stored in this point
      */
     public double getX() {
-        return xCoordinate;
+        return this.xCoordinate;
     }
 
     /**

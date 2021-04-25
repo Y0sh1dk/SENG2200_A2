@@ -11,16 +11,26 @@ import java.util.NoSuchElementException;
  * Description:
  * Generic Doubly Linked List  w/ Sentinel data structure
  */
-public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedList<T> {
-    private final Node<T> sentinel;                                // Sentinel node for start/end of CLL (cannot be changed)
+public class LinkedList<T extends PlanarShape> implements Iterable<T> {
+    private final Node<T> sentinel;                             // Sentinel node for start/end of CLL (cannot be changed)
     private int size;                                           // size of CLL (Excluding sentinel)
+    private int modCount;                                       // Modifications to the LL
 
     public LinkedList() {
+        //Setup sentinel node
         this.sentinel = new Node<T>(null);
+        this.sentinel.setNextNode(this.sentinel);
+        this.sentinel.setPrevNode(this.sentinel);
+
         this.size = 0;
+        this.modCount = 0;
     }
 
-    @Override
+    /**
+     * append() method
+     *
+     * @param inData data to add to the end of the LL
+     */
     public void append(T inData) {
         this.add(inData, this.sentinel);
     }
@@ -28,14 +38,17 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
     /**
      * prepend() method
      *
-     * @param inData data to add to the start of the CLL
+     * @param inData data to add to the start of the LL
      */
-    @Override
     public void prepend(T inData) {
         this.add(inData, this.sentinel.getNextNode());
     }
 
-    @Override
+    /**
+     * insertInOrder() method
+     *
+     * @param inData data to insider into the LL (in order)
+     */
     public void insertInOrder(T inData) {
         if (this.size == 0) { // LL is empty
             append(inData);
@@ -65,28 +78,39 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
         n.getPrevNode().setNextNode(temp);                      // set left nodes next to new node
         n.setPrevNode(temp);                                    // set right nodes prev to new node
         this.size++;
+        this.modCount++;
     }
 
-    @Override
+    /**
+     * take() method
+     *
+     * @return data stored at head of the list and delete the node
+     */
     public T take() {
         T outData = this.sentinel.getNextNode().getData();
         this.sentinel.getNextNode().getNextNode().setPrevNode(this.sentinel);
         this.sentinel.setNextNode(this.sentinel.getNextNode().getNextNode());
         if (outData != null) {
             this.size--;
+            this.modCount++;
         }
         return outData;
     }
 
+    /**
+     * iterator() method
+     *
+     * @return a iterator instance
+     */
     @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
             private Node<T> current = sentinel; // set current to sentinel
-            private int coModCount = size;
+            private int expectedModCount = modCount;
 
             @Override
             public boolean hasNext() {
-                if(this.coModCount != size) {
+                if(this.expectedModCount != modCount) {
                     throw new ConcurrentModificationException();
                 }
                 return current.getNextNode().getData() != null;
@@ -105,12 +129,18 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
             public void remove() {
                 this.current.getNextNode().setPrevNode(this.current.getPrevNode());
                 this.current.getPrevNode().setNextNode(this.current.getNextNode());
-                this.coModCount--;
+                this.expectedModCount++; // fine because done inside iterator
+                modCount++;
                 size--;
             }
         };
     }
 
+    /**
+     * toString() method
+     *
+     * @return string representation of the LL
+     */
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
@@ -121,6 +151,11 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T>, ILinkedLi
         return str.toString();
     }
 
+    /**
+     * getSize() method
+     *
+     * @return the size of the LL
+     */
     public int getSize() {
         return this.size;
     }

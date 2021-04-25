@@ -5,15 +5,23 @@
  * Student No: c3329520
  * <p>
  * Description:
- * Polygon class that extends the PlanarShape abstract class, used to reporesent a Polygon
+ * Polygon class that extends the PlanarShape abstract class, used to represent a Polygon
  */
 
 public class Polygon extends PlanarShape {
 
+    /**
+     * Constructor when number of points are given
+     * @param inNumOfPoints number of points on the polygon
+     */
     public Polygon(int inNumOfPoints) {
         super(ShapeType.POLYGON, inNumOfPoints);
     }
 
+    /**
+     * toString() method
+     * @return A string representation of the polygon
+     */
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder("POLY=[");
@@ -24,6 +32,10 @@ public class Polygon extends PlanarShape {
         return str.toString();
     }
 
+    /**
+     * area() method
+     * @return the area of the polygon
+     */
     @Override
     public double area() {
         double a = 0;
@@ -37,8 +49,12 @@ public class Polygon extends PlanarShape {
         return 0.5 * Math.abs(a);
     }
 
+    /**
+     * originDistance()
+     * @return the distance from the closest point to the origin
+     */
     @Override
-    public double originDistance() { // TODO: CHECK THIS!!!
+    public double originDistance() {
         double shortestDist = this.points[0].distFromOrigin(); // Initialize with any value from the array
         for (Point p : this.points) {
             if (p.distFromOrigin() < shortestDist) {
