@@ -36,7 +36,7 @@ public abstract class PlanarShape implements Comparable<PlanarShape> {
     public PlanarShape(ShapeType shapeType, int inNumOfPoints) {
         this();
         this.shapeType = shapeType;
-        this.points = new Point[inNumOfPoints];
+        this.points = new Point[inNumOfPoints]; // Initialize array with num of points
     }
 
     /**

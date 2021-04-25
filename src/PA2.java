@@ -48,18 +48,18 @@ public class PA2 {
      */
     private void run(Path filePath) {
         System.out.println("Unsorted list");
-        LinkedList<PlanarShape> l1 = new LinkedList<>();                               // Create new MyPolygons instance
-        this.generateShapesFromFile(filePath, l1);             // Add polygons from file
-        System.out.print(l1);                                         // Print string rep of class
+        LinkedList<PlanarShape> l1 = new LinkedList<>();             // Create new MyPolygons instance
+        this.generateShapesFromFile(filePath, l1);                   // Add polygons from file
+        System.out.print(l1);                                        // Print string rep of class
 
-        LinkedList<PlanarShape> l2 = new LinkedList<>();                             // Create new MyPolygons instance
+        LinkedList<PlanarShape> l2 = new LinkedList<>();             // Create new MyPolygons instance
         Iterator<PlanarShape> itr = l1.iterator();
         while(itr.hasNext()) {
             l2.insertInOrder(itr.next());
             itr.remove();
         }
         System.out.println("Sorted list");
-        System.out.println(l2);                                         // Print string rep of class
+        System.out.println(l2);                                      // Print string rep of class
     }
 
     /**
