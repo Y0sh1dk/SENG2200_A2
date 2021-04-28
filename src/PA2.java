@@ -86,7 +86,7 @@ public class PA2 {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
@@ -105,7 +105,7 @@ public class PA2 {
                 shape.addPoint(Double.parseDouble(params[i]), Double.parseDouble(params[i+1]));
             }
         } catch (Exception e) {
-
+            System.err.println(e);
         }
         return shape;
     }
@@ -124,7 +124,7 @@ public class PA2 {
             shape.addPoint(Double.parseDouble(params[0]), Double.parseDouble(params[1]));
             shape.setRadius(Double.parseDouble(params[2]));
         } catch (Exception e) {
-
+            System.err.println(e);
         }
         return shape;
     }
@@ -143,7 +143,7 @@ public class PA2 {
             shape.addPoint(Double.parseDouble(params[0]), Double.parseDouble(params[1]));
             shape.addPoint(Double.parseDouble(params[2]), Double.parseDouble(params[3]));
         } catch (Exception e) {
-
+            System.err.println(e);
         }
         return shape;
     }

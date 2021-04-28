@@ -9,7 +9,7 @@
  */
 
 public class Node<T> {
-    private T data;                                       // Data to store in the node
+    private T data;                                                 // Data to store in the node
     private Node<T> nextNode;                                      // Node after this node
     private Node<T> prevNode;                                      // Node before this node
 
