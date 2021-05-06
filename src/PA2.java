@@ -74,15 +74,9 @@ public class PA2 {
             inputStream.useDelimiter("P|C|S");
             while(inputStream.hasNext()) {
                 switch (inputStream.findInLine("P|C|S")) {
-                    case "P":
-                        inLL.append(generatePolygon(inputStream.next()));
-                        break;
-                    case "C":
-                        inLL.append(generateCircle(inputStream.next()));
-                        break;
-                    case "S":
-                        inLL.append(generateSemiCircle(inputStream.next()));
-                        break;
+                    case "P" -> inLL.append(generatePolygon(inputStream.next()));
+                    case "C" -> inLL.append(generateCircle(inputStream.next()));
+                    case "S" -> inLL.append(generateSemiCircle(inputStream.next()));
                 }
             }
         } catch (Exception e) {
