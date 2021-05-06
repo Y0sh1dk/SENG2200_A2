@@ -113,7 +113,7 @@ public class LinkedList<T extends PlanarShape> implements Iterable<T> {
                 if(this.expectedModCount != modCount) {
                     throw new ConcurrentModificationException();
                 }
-                return current.getNextNode().getData() != null;
+                return current.getNextNode() != sentinel;
             }
 
             @Override
