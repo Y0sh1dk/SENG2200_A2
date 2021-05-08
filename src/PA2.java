@@ -74,9 +74,15 @@ public class PA2 {
             inputStream.useDelimiter("P|C|S");
             while(inputStream.hasNext()) {
                 switch (inputStream.findInLine("P|C|S")) {
-                    case "P" -> inLL.append(PlanarShapeFactory.getShape(PlanarShape.ShapeType.POLYGON, inputStream.next()));
-                    case "C" -> inLL.append(PlanarShapeFactory.getShape(PlanarShape.ShapeType.CIRCLE, inputStream.next()));
-                    case "S" -> inLL.append(PlanarShapeFactory.getShape(PlanarShape.ShapeType.SEMICIRCLE, inputStream.next()));
+                    case "P":
+                        inLL.append(PlanarShapeFactory.getShape(PlanarShape.ShapeType.POLYGON, inputStream.next()));
+                        break;
+                    case "C":
+                        inLL.append(PlanarShapeFactory.getShape(PlanarShape.ShapeType.CIRCLE, inputStream.next()));
+                        break;
+                    case "S":
+                        inLL.append(PlanarShapeFactory.getShape(PlanarShape.ShapeType.SEMICIRCLE, inputStream.next()));
+                        break;
                 }
             }
         } catch (Exception e) {

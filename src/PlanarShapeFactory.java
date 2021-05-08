@@ -18,18 +18,14 @@ public class PlanarShapeFactory {
      */
     public static PlanarShape getShape(PlanarShape.ShapeType inShapeType, String shapeStr) throws Exception {
         switch (inShapeType) {
-            case POLYGON -> {
+            case POLYGON:
                 return generatePolygon(shapeStr);
-            }
-            case CIRCLE -> {
+            case CIRCLE:
                 return generateCircle(shapeStr);
-            }
-            case SEMICIRCLE -> {
+            case SEMICIRCLE:
                 return generateSemiCircle(shapeStr);
-            }
-            default -> {
+            default:
                 throw new Exception("Cannot create from string: " + shapeStr);
-            }
         }
     }
 
