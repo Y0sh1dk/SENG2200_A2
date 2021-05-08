@@ -74,72 +74,13 @@ public class PA2 {
             inputStream.useDelimiter("P|C|S");
             while(inputStream.hasNext()) {
                 switch (inputStream.findInLine("P|C|S")) {
-                    case "P" -> inLL.append(generatePolygon(inputStream.next()));
-                    case "C" -> inLL.append(generateCircle(inputStream.next()));
-                    case "S" -> inLL.append(generateSemiCircle(inputStream.next()));
+                    case "P" -> inLL.append(PlanarShapeFactory.getShape(PlanarShape.ShapeType.POLYGON, inputStream.next()));
+                    case "C" -> inLL.append(PlanarShapeFactory.getShape(PlanarShape.ShapeType.CIRCLE, inputStream.next()));
+                    case "S" -> inLL.append(PlanarShapeFactory.getShape(PlanarShape.ShapeType.SEMICIRCLE, inputStream.next()));
                 }
             }
         } catch (Exception e) {
             System.err.println(e);
         }
     }
-
-    /**
-     * generatePolygon() method
-     *
-     * @param str string from file to create polygon from
-     * @return a polygon object
-     */
-    private PlanarShape generatePolygon(String str) {
-        String[] params = str.trim().split("\\s+");
-        PlanarShape shape = null;
-        try {
-            shape = PlanarShapeFactory.getShape(PlanarShape.ShapeType.POLYGON, Integer.parseInt(params[0]));
-            for (int i = 1; i < Integer.parseInt(params[0]) * 2; i = i+2) {
-                shape.addPoint(Double.parseDouble(params[i]), Double.parseDouble(params[i+1]));
-            }
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-        return shape;
-    }
-
-    /**
-     * generateCircle() method
-     *
-     * @param str string from file to create circle from
-     * @return a circle object
-     */
-    private Circle generateCircle(String str) {
-        String[] params = str.trim().split("\\s+");
-        Circle shape = null;
-        try {
-            shape = (Circle)PlanarShapeFactory.getShape(PlanarShape.ShapeType.CIRCLE);
-            shape.addPoint(Double.parseDouble(params[0]), Double.parseDouble(params[1]));
-            shape.setRadius(Double.parseDouble(params[2]));
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-        return shape;
-    }
-
-    /**
-     * generateSemiCircle() method
-     *
-     * @param str string from file to create semiCircle from
-     * @return a semiCircle object
-     */
-    private SemiCircle generateSemiCircle(String str) {
-        String[] params = str.trim().split("\\s+");
-        SemiCircle shape = null;
-        try {
-            shape = (SemiCircle)PlanarShapeFactory.getShape(PlanarShape.ShapeType.SEMICIRCLE);
-            shape.addPoint(Double.parseDouble(params[0]), Double.parseDouble(params[1]));
-            shape.addPoint(Double.parseDouble(params[2]), Double.parseDouble(params[3]));
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-        return shape;
-    }
-
 }
